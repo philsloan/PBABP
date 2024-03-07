@@ -2,11 +2,18 @@ const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 const projectSchema = new Schema({
+  projectTitle: {
+    type: String,
+    required: true,
+    minlength: 1,
+    maxlength: 50,
+    trim: true,
+  },
   projectText: {
     type: String,
     required: true,
     minlength: 1,
-    maxlength: 280,
+    maxlength: 5000,
     trim: true,
   },
   projectAuthor: {
@@ -25,7 +32,7 @@ const projectSchema = new Schema({
         type: String,
         required: true,
         minlength: 1,
-        maxlength: 280,
+        maxlength: 500,
       },
       commentAuthor: {
         type: String,
