@@ -21,14 +21,14 @@ const userSchema = new Schema({
     minlength: 6,
   },
   projects: [{
-    type: schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: 'Project'
   }]
 });
 
 userSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {
-    const saltRounds = process.env.SALTROUNDS;
+    const saltRounds = Number(process.env.SALTROUNDS);
     this.password = await bcrypt.hash(this.password, saltRounds);
   }
 
