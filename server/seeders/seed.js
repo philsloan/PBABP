@@ -1,9 +1,9 @@
-const db = require('../config/connection');
+const db = require('../config/connection.js');
 const { User, Project } = require('../models');
 const userSeeds = require('./userSeeds.json');
 const projectSeeds = require('./projectSeeds.json');
-const cleanDB = require('./cleanDB');
-
+const cleanDB = require('./cleanDB.js');
+console.log(cleanDB);
 db.once('open', async () => {
   try {
     await cleanDB('Project', 'projects');
