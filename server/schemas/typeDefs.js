@@ -15,6 +15,7 @@ const typeDefs = `
 
     type Project {
         _id: ID
+        projectTitle: String
         projectText: String
         projectAuthor: String
         comments: [Comment]!
