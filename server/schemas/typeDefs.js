@@ -18,6 +18,7 @@ const typeDefs = `
         projectText: String
         projectAuthor: String
         comments: [Comment]!
+        createdAt: String
 
     }
 
@@ -25,6 +26,7 @@ const typeDefs = `
         _id: ID
         commentText: String
         commentAuthor: String
+        createdAt: String
 
     }
 
