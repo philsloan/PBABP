@@ -34,8 +34,8 @@ const typeDefs = `
     type Query {
         users: [User]
         user(username: String!): User
-        projects(username: String!): [Project]
-        project(project: ID!): Project
+        projects(projectAuthor: String!): [Project]
+        project(projectId: String!): Project
     }
 
     type Mutation {
