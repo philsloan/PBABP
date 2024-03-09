@@ -32,8 +32,8 @@ const typeDefs = `
     }
 
     type Query {
-        users: [User]
-        user(username: String!): User
+        users(username: String): [User]
+        
         projects(projectAuthor: String!): [Project]
         project(projectId: String!): Project
     }
@@ -47,6 +47,6 @@ const typeDefs = `
         removeComment(projectId: ID!, commentId: ID!): Project
     }
 `;
-
+// user(username: String!): User
 
 module.exports = typeDefs;
