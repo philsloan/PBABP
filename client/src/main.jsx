@@ -6,6 +6,8 @@ import App from "./App.jsx";
 import Home from './pages/Home';
 import Signup from './pages/signUp.jsx';
 import Error from "./pages/Error";
+import Profile from "./pages/profile.jsx";
+import SingleProject from "./pages/post.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,18 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Signup />,
+      },
+      {
+        path: "/myprofile",
+        element: <Profile />,
+      },
+      {
+        path: "/profile/:username",
+        element: <Profile />,
+      },
+      {
+        path: "/project/:projectId",
+        element: <SingleProject />,
       },
     ],
   },
