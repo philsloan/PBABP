@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
-import { ADD_PROJECT_IDEA_COMMENT } from '../../utils/mutations'; 
+import { ADD_COMMENT } from '../../utils/mutations'; 
 
 import Auth from '../../utils/auth';
 
@@ -10,7 +10,7 @@ const CommentForm = ({ projectId }) => {
   const [commentText, setCommentText] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addComment, { error }] = useMutation(ADD_PROJECT_IDEA_COMMENT);
+  const [addComment, { error }] = useMutation(ADD_COMMENT);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -26,7 +26,7 @@ const CommentForm = ({ projectId }) => {
         variables: {
           projectId, 
           commentText,
-          commentAuthor: Auth.getProfile().data.username 
+          commentAuthor: Auth.getProfile().authenticatedPerson.username 
         },
       });
 
