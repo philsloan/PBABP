@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-// import commentForm from "../components/commentForm";
-// import commentList from "../components/commentList";
+import CommentForm from "../components/commentForm";
+import CommentList from "../components/commentList";
 import { QUERY_SINGLE_PROJECT } from "../utils/queries";
 
 const SingleProject = () => {
@@ -22,10 +22,10 @@ const SingleProject = () => {
       </Link>
       <div>{project.projectText}</div>
       <div>
-        {/* <commentList comments={project.comments} /> */}
+        <CommentList comments={project.comments} />
       </div>
       <div>
-        {/* <commentForm projectId={project._id} /> */}
+        <CommentForm projectId={project._id} />
       </div>
     </div>
   );
