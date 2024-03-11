@@ -34,7 +34,7 @@ const typeDefs = `
     type Query {
         users(username: String): [User]
         
-        projects(projectAuthor: String!): [Project]
+        projects: [Project]
         project(projectId: String!): Project
     }
 

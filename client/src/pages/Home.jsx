@@ -1,22 +1,20 @@
 import { useQuery } from "@apollo/client";
-// import projectForm from "../components/projectForm";
-// import projectList from "../components/projectList";
+import ProjectList from "../components/projectList";
 import { QUERY_PROJECTS } from "../utils/queries";
 
 const Home = () => {
   const { posts, data } = useQuery(QUERY_PROJECTS);
   const projects = data?.projects || [];
+  console.log(projects)
 
   return (
-    // <main>
-    //   {/* <projectForm /> */}
-    //   {posts ? (
-    //     <div>Looking for posts...</div>
-    //   ) : (
-    //     // <projectList projects={projects} />
-    //   )}
-    // </main>
-    <div>home</div>
+    <main>
+      {posts ? (
+        <div>Looking for posts...</div>
+      ) : (
+        <ProjectList projects={projects} />
+      )}
+    </main>
   );
 };
 
