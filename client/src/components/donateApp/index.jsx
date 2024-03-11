@@ -59,9 +59,9 @@ function AmountPicker({ onAmountChange }) {
   return (
     <fieldset onChange={onAmountChange}>
       <legend>Donation Amount</legend>
-      <label>
+      <label>$
       <input type="text" id="override-price3" size="10" placeholder="0.00">
-        $Enter Cash Value$
+       
       </input>
       </label>
     </fieldset>

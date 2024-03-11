@@ -4,7 +4,7 @@ import CommentForm from "../components/commentForm";
 import CommentList from "../components/commentList";
 import { QUERY_SINGLE_PROJECT } from "../utils/queries";
 import { DonateApp } from "../components/donateApp";
-import ReactDOM from "react-dom";
+
 
 const SingleProject = () => {
   const { projectId } = useParams();
@@ -29,9 +29,9 @@ const SingleProject = () => {
       <div>
         <CommentForm projectId={project._id} />
       </div>
-      React.render(
-        <DonateApp/>, projectId
-      )
+      
+        <DonateApp/>
+      
     </div>
   );
 };
