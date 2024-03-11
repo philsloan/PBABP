@@ -19,7 +19,7 @@ const Header = () => {
         <div>
           {Auth.loggedIn() ? (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/me">
+              <Link className="btn btn-lg btn-info m-2" to="/myprofile">
                 {Auth.getProfile().authenticatedPerson.username}'s profile
               </Link>
               <button className="btn btn-lg btn-light m-2" onClick={logout}>
@@ -28,12 +28,12 @@ const Header = () => {
             </>
           ) : (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/login">
+              <Link className="btn btn-lg btn-info m-2" to="/signup">
                 Login
               </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
+              {/* <Link className="btn btn-lg btn-light m-2" to="/signup">
                 Signup
-              </Link>
+              </Link> */}
             </>
           )}
         </div>

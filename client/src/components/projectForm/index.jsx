@@ -1,31 +1,35 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
 
-import { ADD_PROJECT } from '../../utils/mutations';
-import { QUERY_PROJECTS, QUERY_ME } from '../../utils/queries';
+import { ADD_PROJECT } from "../../utils/mutations";
 
-import Auth from '../../utils/auth';
+import Auth from "../../utils/auth";
 
 const ProjectForm = () => {
-  const [projectText, setProjectText] = useState('');
+  const [newProject, setNewProject] = useState({
+    projectTitle: "",
+    projectText: "",
+  });
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addProject, { error }] = useMutation(ADD_PROJECT, {
-    refetchQueries: [QUERY_PROJECTS, 'getProjects', QUERY_ME, 'me']
-  });
+  const [addProject, { error }] = useMutation(ADD_PROJECT);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
       const { data } = await addProject({
         variables: {
-          projectText,
-          projectAuthor: Auth.getProfile().authenticatedPerson.username
+          ...newProject,
+          projectAuthor: Auth.getProfile().authenticatedPerson.username,
         },
       });
 
-      setProjectText('');
+      setNewProject({
+        projectTitle: "",
+        projectText: "",
+      });
+      location.reload();
     } catch (err) {
       console.error(err);
     }
@@ -34,9 +38,17 @@ const ProjectForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'projectText' && value.length <= 280) {
-      setProjectText(value);
+    if (name === "projectText" && value.length <= 280) {
+      setNewProject({
+        ...newProject,
+        [name]: value,
+      });
       setCharacterCount(value.length);
+    } else if (name === "projectTitle") {
+      setNewProject({
+        ...newProject,
+        [name]: value,
+      });
     }
   };
 
@@ -46,7 +58,11 @@ const ProjectForm = () => {
 
       {Auth.loggedIn() ? (
         <>
-          <p className={`m-0 ${characterCount === 280 || error ? 'text-danger' : ''}`}>
+          <p
+            className={`m-0 ${
+              characterCount === 280 || error ? "text-danger" : ""
+            }`}
+          >
             Character Count: {characterCount}/280
           </p>
           <form
@@ -54,12 +70,22 @@ const ProjectForm = () => {
             onSubmit={handleFormSubmit}
           >
             <div className="col-12 col-lg-9">
+              <input
+                name="projectTitle"
+                placeholder="New project name..."
+                value={newProject.projectTitle}
+                className="form-input w-100"
+                style={{ lineHeight: "1.5", resize: "vertical" }}
+                onChange={handleChange}
+              ></input>
+            </div>
+            <div className="col-12 col-lg-9">
               <textarea
                 name="projectText"
                 placeholder="Here's a new project..."
-                value={projectText}
+                value={newProject.projectText}
                 className="form-input w-100"
-                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                style={{ lineHeight: "1.5", resize: "vertical" }}
                 onChange={handleChange}
               ></textarea>
             </div>
@@ -78,8 +104,8 @@ const ProjectForm = () => {
         </>
       ) : (
         <p>
-          You need to be logged in to share your projects. Please{' '}
-          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+          You need to be logged in to share your projects. Please{" "}
+          <Link to="/signup">signup.</Link>
         </p>
       )}
     </div>

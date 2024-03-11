@@ -25,8 +25,8 @@ export const QUERY_USERS = gql`
 `;
 
 export const QUERY_PROJECTS = gql`
-  query projects($projectAuthor: String!) {
-  projects(projectAuthor: $projectAuthor) {
+  query projects {
+  projects {
     _id
     createdAt
     projectAuthor
