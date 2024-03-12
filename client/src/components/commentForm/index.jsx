@@ -47,7 +47,7 @@ const CommentForm = ({ projectId }) => {
   };
 
   return (
-    <div>
+    <section>
       <h4>Have any ideas or feedback for this project?</h4>
 
       {Auth.loggedIn() ? (
@@ -61,7 +61,7 @@ const CommentForm = ({ projectId }) => {
               placeholder="Add your idea or feedback..."
               value={commentText}
               className="form-input w-100"
-              style={{ lineHeight: '1.5', resize: 'vertical' }}
+              style={{ lineHeight: '2.5', width: '80%', resize: 'vertical' }}
               onChange={handleChange}
             />
             <button className="btn btn-primary" type="submit">
@@ -75,7 +75,7 @@ const CommentForm = ({ projectId }) => {
           <Link to="/login">login</Link> or <Link to="/signup">signup</Link>.
         </p>
       )}
-    </div>
+    </section>
   );
 };
 

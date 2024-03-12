@@ -23,7 +23,7 @@ const SingleProject = () => {
         {project.projectAuthor} <br />
       </h3>
       </Link>
-      <div>{project.projectText}</div>
+      <section>{project.projectText}</section>
       <div>
         <CommentList comments={project.comments} />
       </div>

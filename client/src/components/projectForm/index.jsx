@@ -89,12 +89,15 @@ const ProjectForm = () => {
             <div className="col-12 col-lg-9">
               <input
                 name="paypalLink"
-                placeholder="Link to paypal"
+                placeholder="Paypal client ID"
                 value={newProject.paypalLink}
                 className="form-input w-100"
                 style={{ lineHeight: "1.5", resize: "vertical" }}
                 onChange={handleChange}
               ></input>
+            </div>
+            <div>
+              <Link to="https://developer.paypal.com/api/rest/">How to get your paypal client ID.</Link>
             </div>
             <div className="col-12 col-lg-9">
               <textarea
