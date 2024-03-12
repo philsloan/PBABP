@@ -21,6 +21,9 @@ const projectSchema = new Schema({
     required: true,
     trim: true,
   },
+  paypal_link: {
+    type: String
+  },
   createdAt: {
     type: Date,
     default: Date.now,

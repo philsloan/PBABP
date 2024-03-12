@@ -46,6 +46,7 @@ const resolvers = {
         },
         addProject: async (parent, args, context) => {
           if (context.user) {
+            console.log(args)
             const project = await Project.create({
               ...args,
               projectAuthor: context.user.username,

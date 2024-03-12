@@ -17,8 +17,8 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_PROJECT = gql`
-  mutation addProject($projectTitle: String!, $projectText: String!) {
-  addProject(projectTitle: $projectTitle, projectText: $projectText) {
+  mutation addProject($projectTitle: String!, $projectText: String!, $paypalLink: String) {
+  addProject(projectTitle: $projectTitle, projectText: $projectText, paypal_link: $paypalLink) {
     _id
     createdAt
     projectAuthor

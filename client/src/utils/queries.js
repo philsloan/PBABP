@@ -2,17 +2,17 @@ import { gql } from '@apollo/client';
 
 export const QUERY_USERS = gql`
   query users($username: String) {
-  users(username: $username) {
+    users(username: $username) {
     _id
     email
-    password
     username
     projects {
       _id
-      createdAt
       projectAuthor
       projectText
       projectTitle
+      paypal_link
+      createdAt
       comments {
         _id
         commentAuthor
@@ -26,12 +26,13 @@ export const QUERY_USERS = gql`
 
 export const QUERY_PROJECTS = gql`
   query projects {
-  projects {
+    projects {
     _id
-    createdAt
     projectAuthor
     projectText
     projectTitle
+    paypal_link
+    createdAt
     comments {
       _id
       commentAuthor
@@ -44,12 +45,13 @@ export const QUERY_PROJECTS = gql`
 
 export const QUERY_SINGLE_PROJECT = gql`
   query project($projectId: String!) {
-  project(projectId: $projectId) {
+    project(projectId: $projectId) {
     _id
-    createdAt
     projectAuthor
     projectText
     projectTitle
+    paypal_link
+    createdAt
     comments {
       _id
       commentAuthor

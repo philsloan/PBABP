@@ -15,6 +15,7 @@ const SingleProject = () => {
   if (loading) {
     return <div>Loading project...</div>;
   }
+  localStorage.removeItem("__paypal_storage__")
   return (
     <div>
         <Link to = {`/profile/${project.projectAuthor}`}>
@@ -30,7 +31,7 @@ const SingleProject = () => {
         <CommentForm projectId={project._id} />
       </div>
       
-        <DonateApp/>
+        <DonateApp paypalLink={project.paypal_link}/>
       
     </div>
   );
