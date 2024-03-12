@@ -4,7 +4,7 @@ const CommentList = ({ comments = [] }) => {
     }
   
     return (
-      <>
+      <section>
         <h3
           className="p-5 display-inline-block"
           style={{ borderBottom: '1px dotted #1a1a1a' }}
@@ -27,7 +27,7 @@ const CommentList = ({ comments = [] }) => {
               </div>
             ))}
         </div>
-      </>
+      </section>
     );
   };
   

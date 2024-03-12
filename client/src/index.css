@@ -4,19 +4,27 @@
   --color-dark-blue: #282b72;
   --color-light: #ffffff;
   --color-pink: #e97fb5;
-  --color-blue: #7e4e2d6;
-  --color-green: #3eea5;
+  --color-blue: #74e2d6;
+  --color-green: #c3eea5;
   --color-yellow: #f0c059;
   --color-orange: #e76a28;
   --font-family-default: 'DM Sans', sans-serif;
   --font-family-heading: 'Montserrat', sans-serif;
 }
 
-html, body {
+header {
+  background-color: #241501;
+}
+
+html {
+  background-color: #241501;
+}
+
+body {
   margin: 0;
   padding: 0;
   font-family: var(--font-family-default);
-  background-color: var(--color-dark-blue);
+  background-color: #f7deba;
   color: var(--color-light);
   line-height: 1.6;
 }
@@ -24,6 +32,41 @@ html, body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-heading);
   color: var(--color-yellow);
+}
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+  color: #ffffff;
+  font-family: DM Sans;
+}
+
+h2 {
+  color: #241501;
+}
+
+h3 {
+  color: #241501;
+  margin-left: 30px;
+}
+
+h4 {
+  color: #241501;
+}
+
+h6 {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 15px;
+}
+
+main {
+  text-align: center;
+}
+
+section {
+  margin-left: 30px;
 }
 
 a {
@@ -37,10 +80,16 @@ a:hover {
 
 button {
   font-family: var(--font-family-default);
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 input, select, textarea {
   font-family: var(--font-family-default);
+}
+
+footer {
+  text-align: center;
 }
 
 /* Might want to add more styling rules here for other HTML elements. */
