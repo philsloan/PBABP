@@ -18,6 +18,7 @@ const typeDefs = `
         projectTitle: String
         projectText: String
         projectAuthor: String
+        paypal_link: String
         comments: [Comment]
         createdAt: String
 
@@ -41,7 +42,7 @@ const typeDefs = `
     type Mutation {
         addUser(username: String!, email: String!, password: String!): Auth
         login(username: String!, password: String!): Auth
-        addProject(projectTitle: String!, projectText: String!): Project
+        addProject(projectTitle: String!, projectText: String!, paypal_link: String): Project
         addComment(projectId: ID!, commentText: String!): Project
         removeProject(projectId: ID!): Project
         removeComment(projectId: ID!, commentId: ID!): Project

@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+
 const DonateButton = ({ currency, amount }) => {
   const amountRef = useRef(amount);
   useEffect(() => {
@@ -39,6 +40,9 @@ const DonateButton = ({ currency, amount }) => {
           ],
         });
       }}
+      onApprove={async (data, actions) => {
+        console.log(data)
+      }}
     />
   );
 };
@@ -67,18 +71,25 @@ function AmountPicker({ onAmountChange }) {
     </fieldset>
   );
 }
-export function DonateApp() {
-  return (
+export function DonateApp({paypalLink}) {
+  // const paypalClient = paypalLink? paypalLink: import.meta.env.VITE_PAYPAL_CLIENT_ID
+  // paypalLink = import.meta.env.VITE_PAYPAL_CLIENT_ID
+
+  return (<div>
+    {paypalLink?(
     <PayPalScriptProvider
       options={{
-        "client-id": "test",
+        "client-id": paypalLink,
         components: "buttons",
         currency: "USD",
       }}
     >
       <DonateForm />
     </PayPalScriptProvider>
-  );
+    ):(
+      <div>No paypal account associated with this project</div>
+    )
+    }</div>)
 }
 
 // forcing git change

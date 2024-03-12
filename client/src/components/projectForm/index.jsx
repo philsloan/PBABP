@@ -10,6 +10,7 @@ const ProjectForm = () => {
   const [newProject, setNewProject] = useState({
     projectTitle: "",
     projectText: "",
+    paypalLink: ""
   });
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -28,6 +29,7 @@ const ProjectForm = () => {
       setNewProject({
         projectTitle: "",
         projectText: "",
+        paypalLink: ""
       });
       location.reload();
     } catch (err) {
@@ -38,13 +40,18 @@ const ProjectForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === "projectText" && value.length <= 280) {
+    if (name === "projectText" && value.length <= 5000) {
       setNewProject({
         ...newProject,
         [name]: value,
       });
       setCharacterCount(value.length);
     } else if (name === "projectTitle") {
+      setNewProject({
+        ...newProject,
+        [name]: value,
+      });
+    } else if (name === "paypalLink") {
       setNewProject({
         ...newProject,
         [name]: value,
@@ -60,10 +67,10 @@ const ProjectForm = () => {
         <>
           <p
             className={`m-0 ${
-              characterCount === 280 || error ? "text-danger" : ""
+              characterCount === 5000 || error ? "text-danger" : ""
             }`}
           >
-            Character Count: {characterCount}/280
+            Character Count: {characterCount}/5000
           </p>
           <form
             className="flex-row justify-center justify-space-between-md align-center"
@@ -74,6 +81,16 @@ const ProjectForm = () => {
                 name="projectTitle"
                 placeholder="New project name..."
                 value={newProject.projectTitle}
+                className="form-input w-100"
+                style={{ lineHeight: "1.5", resize: "vertical" }}
+                onChange={handleChange}
+              ></input>
+            </div>
+            <div className="col-12 col-lg-9">
+              <input
+                name="paypalLink"
+                placeholder="Link to paypal"
+                value={newProject.paypalLink}
                 className="form-input w-100"
                 style={{ lineHeight: "1.5", resize: "vertical" }}
                 onChange={handleChange}
