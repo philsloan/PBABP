@@ -58,10 +58,10 @@ const CommentForm = ({ projectId }) => {
           </p>
           <form onSubmit={handleFormSubmit} className="flex-row justify-center align-stretch">
             <textarea
-              placeholder="Add your idea or feedback..."
+              placeholder="Add your feedback..."
               value={commentText}
               className="form-input w-100"
-              style={{ lineHeight: '2.5', width: '80%', resize: 'vertical' }}
+              style={{ lineHeight: '2.5', width: '50%', resize: 'vertical' }}
               onChange={handleChange}
             />
             <button className="btn btn-primary" type="submit">

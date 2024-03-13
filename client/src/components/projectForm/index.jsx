@@ -65,13 +65,13 @@ const ProjectForm = () => {
 
       {Auth.loggedIn() ? (
         <>
-          <p
+          <section
             className={`m-0 ${
               characterCount === 5000 || error ? "text-danger" : ""
             }`}
           >
             Character Count: {characterCount}/5000
-          </p>
+          </section>
           <form
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
@@ -102,10 +102,10 @@ const ProjectForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="projectText"
-                placeholder="Here's a new project..."
+                placeholder="New project details..."
                 value={newProject.projectText}
                 className="form-input w-100"
-                style={{ lineHeight: "1.5", resize: "vertical" }}
+                style={{ lineHeight: "5", width: "40%", resize: "vertical" }}
                 onChange={handleChange}
               ></textarea>
             </div>
