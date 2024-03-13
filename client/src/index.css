@@ -43,6 +43,7 @@ h1 {
 
 h2 {
   color: #241501;
+  margin-left: 30px;
 }
 
 h3 {
@@ -54,19 +55,58 @@ h4 {
   color: #241501;
 }
 
+h5 {
+  color: #241501;
+}
+
 h6 {
   position: absolute;
   top: 0px;
   right: 0px;
   font-size: 15px;
+  margin-right: 20px;
 }
 
 main {
   text-align: center;
 }
 
+p {
+  color: black;
+}
+
 section {
   margin-left: 30px;
+  color: black;
+}
+
+form {
+  margin-left: 30px;
+}
+
+label {
+  color: black;
+}
+
+#signup-login {
+  color: black;
+}
+
+#signInButton {
+  margin-left: 10px;
+}
+
+#swap {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#swap:hover {
+  text-decoration: underline;
+}
+
+#projectlist {
+  text-align: center;
 }
 
 a {

@@ -22,16 +22,18 @@ const Profile = () => {
   return (
     <div>
       <h2>Profile</h2>
-      <div>
-        <div>
+      <section>
+        <h4>
           Name: <span>{user.username}</span>
-        </div>
-        <div>
+        </h4>
+        <h4>
           Email: <span>{user.email}</span>
-        </div>
-      </div>
+        </h4>
+      </section>
       {!username && (<ProjectForm />)}
+      <div id="projectlist">
       <ProjectList projects={user.projects} />
+      </div>
     </div>
   );
 };

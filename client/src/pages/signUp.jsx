@@ -85,9 +85,9 @@ const signUp = () => {
             onChange={handleUserFormChange}
           ></input>
         </label>
-        <div>
-          <span onClick={handleChangeToSignUp}>{signUpForm?"Login":"Signup"}</span>
-          <button>submit</button>
+        <button id="signInButton">submit</button>
+        <div id="signup-login">
+          <span id="swap" onClick={handleChangeToSignUp}>{signUpForm?"Already have an account? click here to login!":"Don't have an account? Click here to make one!"}</span>
         </div>
       </form>
     </div>

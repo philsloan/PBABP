@@ -30,9 +30,9 @@ const SingleProject = () => {
       <div>
         <CommentForm projectId={project._id} />
       </div>
-      
-        <DonateApp paypalLink={project.paypal_link}/>
-      
+      <section>
+        <DonateApp paypalLink={project.paypal_link} />
+        </section>
     </div>
   );
 };
